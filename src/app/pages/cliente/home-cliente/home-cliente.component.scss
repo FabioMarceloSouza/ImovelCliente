@@ -1,0 +1,58 @@
+.icon-home-cliente {
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.modal-delete {
+  width: 400px;
+  min-height: 100px;
+  border: 1px solid black;
+  color:  white;
+  padding: 20px;
+  border-radius: 10px;
+
+  position: absolute;
+  top: 10%;
+  left: 50%;
+}
+
+.modal-delete button {
+  width: 130px;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.input-search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #212529;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.input-search-box input {
+  border: none !important;
+  width: 100%;
+}
+
+.input:active, .input:focus {
+  outline:0 !important;
+  border: none !important;
+}
+
+.btn-imovel-home-cliente {
+  font-size: 0.7em;
+  font-weight: bold;
+  width: 100px;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+

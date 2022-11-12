@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="container my-5">
+  <form [formGroup]="formCliente" (submit)="handleSubmit()" #formDir="ngForm">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="name" placeholder="Digite seu nome..." formControlName="name">
+      <div class="error" *ngIf="!validaCliente.name?.valid && formDir.submitted">
+        <p *ngIf="validaCliente.name?.errors?.['required']">Campo nome obrigatório!</p>
+        <p *ngIf="validaCliente.name?.errors?.['minlength']">Campo nome tem que ter no minimo 2 caracteres!!</p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">E-mail</label>
+      <input type="email" class="form-control" formControlName="email" id="email" placeholder="Digite seu e-mail...">
+      <div class="error" *ngIf="!validaCliente.email?.valid && formDir.submitted">
+        <p *ngIf="validaCliente.email?.errors?.['required']">Campo email obrigatório!</p>
+        <p *ngIf="validaCliente.email?.errors?.['email']">Campo deve conter um email valido!</p>
+      </div>
+    </div>
+    <div class="mb-3 d-flex">
+      <label style="margin-right: 20px;">
+        Cpf
+        <input type="radio"  value="cpf"  (click)="handleChekedCpf()" [(ngModel)]="checked" [ngModelOptions]="{standalone: true}">
+      </label>
+      <label >
+        Cnpj
+        <input type="radio"  value="cnpj"  (click)="handleChekedCnpj()" [(ngModel)]="checked" [ngModelOptions]="{standalone: true}">
+      </label>
+    </div>
+    <div class="mb-3 " *ngIf="checked === 'cpf' ">
+      <label for="cpfOuCnpj"  class="form-label">Cpf</label>
+      <input type="text"  class="form-control" id="cpfOuCnpj"   [mask]="'000.000.000-00'" formControlName="cpfOuCnpj" placeholder="Digite seu CPF...">
+      <div class="error" *ngIf="!validaCliente.cpfOuCnpj?.valid && formDir.submitted">
+        <p *ngIf="validaCliente.cpfOuCnpj?.errors?.['required']">Campo cpf obrigatório!</p>
+        <p *ngIf="validaCliente.cpfOuCnpj?.errors?.['cpfInvalido']">Campo cpf invalido!</p>
+      </div>
+    </div>
+    <div class="mb-3 " *ngIf="checked === 'cnpj' " >
+
+      <label for="cpfOuCnpj"  class="form-label">Cnpj</label>
+      <input type="text"  class="form-control" id="cpfOuCnpj"   [mask]="'00.000.000/0000-00'" formControlName="cpfOuCnpj" placeholder="Digite seu CNPJ...">
+      <div class="error" *ngIf="!validaCliente.cpfOuCnpj?.valid && formDir.submitted">
+        <p *ngIf="validaCliente.cpfOuCnpj?.errors?.['required']">Campo cnpj obrigatório!</p>
+        <p *ngIf="validaCliente.cpfOuCnpj?.errors?.['cnpjInvalido']">Campo cnpj invalido!</p>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
