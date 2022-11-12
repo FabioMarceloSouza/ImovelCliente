@@ -1,0 +1,129 @@
+<app-header></app-header>
+
+<div class="container my-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-8">
+      <form [formGroup]="formImovel"  #formDir="ngForm" (submit)="handleSubmit()">
+        <div class="mb-3">
+          <label for="valorImovel" class="form-label">Valor </label>
+          <input type="number" class="form-control" id="valorImovel" formControlName="valorImovel" >
+
+          <div class="error" *ngIf="!validacaoImovel.valorImovel?.valid && formDir.submitted">
+            <p *ngIf="validacaoImovel.valorImovel?.errors?.['required']">
+              campo obrigatorio
+            </p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="tipoImovel" class="form-label">Tipo Imóvel </label>
+          <select id="tipoImovel" class="form-select" formControlName="tipoImovel">
+            <option value=""  selected>Escolha um tipo</option>
+            <option value="1">Venda</option>
+            <option value="2">Aluguél</option>
+          </select>
+          <div class="error" *ngIf="!validacaoImovel.tipoImovel?.valid && formDir.submitted">
+            <p *ngIf="validacaoImovel.tipoImovel?.errors?.['required']">
+              campo obrigatorio
+            </p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="clienteId" class="form-label">Id do Cliente </label>
+            <input type="text" id="clienteId" formControlName="clienteId" class="form-control">
+          <div class="error" *ngIf="!validacaoImovel.clienteId?.valid && formDir.submitted">
+            <p *ngIf="validacaoImovel.clienteId?.errors?.['required']">
+              campo obrigatorio
+            </p>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="descricao" class="form-label">Descrição do imóvel </label>
+          <textarea class="form-control" id="descricao" cols="30" rows="3" formControlName="descricao"></textarea>
+          <div class="error" *ngIf="!validacaoImovel.descricao?.valid && formDir.submitted">
+            <p *ngIf="validacaoImovel.descricao?.errors?.['required']">
+              campo obrigatorio
+            </p>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="dataPublicacao" class="form-label">Data a ser publicado </label>
+         <input type="tex" class="form-control" id="dataPublicacao" formControlName="dataPublicacao" mask="0000-00-00">
+         <div class="error" *ngIf="!validacaoImovel.dataPublicacao?.valid && formDir.submitted">
+          <p *ngIf="validacaoImovel.dataPublicacao?.errors?.['required']">
+            campo obrigatorio
+          </p>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label for="cep" class="form-label" >CEP </label>
+          <div class="row d-flex">
+            <div class="col-9">
+              <input type="text" class="form-control" id="cep" formControlName="cep" mask="00000-000">
+            </div>
+            <div class="col-3"><button class="btn btn-dark" (click)="buscarCep()"><i class="fa-solid fa-magnifying-glass" ></i></button></div>
+          </div>
+          <div class="error" *ngIf="!validacaoImovel.cep?.valid && formDir.submitted">
+            <p *ngIf="validacaoImovel.cep?.errors?.['required']">
+              campo obrigatorio
+            </p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="logradouro" class="form-label">Logradouro </label>
+         <input type="text" class="form-control" id="logradouro" formControlName="logradouro">
+         <div class="error" *ngIf="!validacaoImovel.logradouro?.valid && formDir.submitted">
+          <p *ngIf="validacaoImovel.logradouro?.errors?.['required']">
+            campo obrigatorio
+          </p>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label for="complemento" class="form-label">Complemento </label>
+         <input type="text" class="form-control" id="complemento" formControlName="complemento">
+         <div class="error" *ngIf="!validacaoImovel.complemento?.valid && formDir.submitted">
+          <p *ngIf="validacaoImovel.complemento?.errors?.['required']">
+            campo obrigatorio
+          </p>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label for="bairro" class="form-label">Bairro </label>
+         <input type="text" class="form-control" id="bairro" formControlName="bairro">
+         <div class="error" *ngIf="!validacaoImovel.bairro?.valid && formDir.submitted">
+          <p *ngIf="validacaoImovel.bairro?.errors?.['required']">
+            campo obrigatorio
+          </p>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label for="localidade" class="form-label">Localidade </label>
+         <input type="text" class="form-control" id="localidade" formControlName="localidade">
+         <div class="error" *ngIf="!validacaoImovel.localidade?.valid && formDir.submitted">
+          <p *ngIf="validacaoImovel.localidade?.errors?.['required']">
+            campo obrigatorio
+          </p>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label for="uf" class="form-label">UF </label>
+         <input type="text" class="form-control" id="uf" formControlName="uf">
+         <div class="error" *ngIf="!validacaoImovel.uf?.valid && formDir.submitted">
+          <p *ngIf="validacaoImovel.uf?.errors?.['required']">
+            campo obrigatorio
+          </p>
+        </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" class="btn btn-dark" style="margin-right: 10px;">Submit</button>
+            <a class="btn btn-dark" [routerLink]="['/imovies-cliente', imovel.id]">Voltar</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

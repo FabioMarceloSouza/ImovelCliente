@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-8">
+      <a class="btn btn-dark" [routerLink]="['create-cliente']">Criar Cliente</a>
+    </div>
+    <div class="col-4">
+      <div class="input-search-box">
+        <input type="text" class="input" [(ngModel)]="search"  (input)="handleSearchInput()">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+  </div>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Cpf / Cnpj</th>
+        <th scope="col">Ativo</th>
+        <th scope="col">Ações</th>
+        <th scope="col">Imóvel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of this.clientes">
+        <th scope="row">{{ item.id}}</th>
+        <td>{{ item.name}}</td>
+        <td>{{ item.email}}</td>
+        <td>{{ item.cpfOuCnpj}}</td>
+        <td>{{ item.active}}</td>
+        <td><i class="fa-solid fa-trash icon-home-cliente" (click)="handleDelete(item.id)"></i> | <a [routerLink]="['/update-cliente', item.id]"><i class="fa-solid fa-pen-to-square icon-home-cliente"></i></a></td>
+        <td *ngIf="item.imovels.length <= 0"> <a class="btn btn-light btn-imovel-home-cliente" [routerLink]="['/create-imovel-cliente', item.id]">Criar Imóvel </a> </td>
+        <td *ngIf="item.imovels.length > 0"> <a class="btn btn-light btn-imovel-home-cliente" [routerLink]="['/imovies-cliente', item.id]">Ver Imóvel </a></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div class="modal-delete bg-dark" *ngIf="modelDelete.abrir == true">
+      <p>Deseja mesmo Excluir ? </p>
+
+      <div class="row">
+        <div class="col-12 d-flex justify-content-between">
+            <button class="btn btn-light" (click)="deletar()">Sim</button>
+            <button class="btn btn-light" (click)="naoDeletar()">Não</button>
+        </div>
+      </div>
+  </div>
+</div>
