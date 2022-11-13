@@ -1,0 +1,72 @@
+<app-header></app-header>
+
+<div class="container my-5">
+  <div class="row mb-3">
+    <div class="col-12">
+      <a routerLink="/view-imovel" class="btn btn-dark">Voltar</a>
+    </div>
+  </div>
+  <div class="row ">
+     <h4>Dados Imovels</h4>
+     <div class="col-12 content-data-imovel">
+       <div>
+        <p>Tipo de venda:</p>
+        <p>{{ imovel?.tipoImovel}}</p>
+       </div>
+       <div>
+        <p>Valor imovel:</p>
+        <p>{{ imovel?.valorImovel | currency: 'BRL'}}</p>
+       </div>
+       <div>
+        <p>Data publicação:</p>
+        <p>{{ imovel?.dataPublicao | date: 'dd/MM/yyyy' }}</p>
+       </div>
+       <div>
+        <p>Descrição:</p>
+        <p>{{ imovel?.descricao  }}</p>
+       </div>
+     </div>
+     <h4>Endereço</h4>
+     <div class="col-12 content-data-imovel">
+      <div>
+        <p>CEP:</p>
+        <p>{{ imovel?.cep  }}</p>
+       </div>
+      <div>
+        <p>Logradouro:</p>
+        <p>{{ imovel?.logradouro  }}</p>
+       </div>
+      <div>
+        <p>Complemento:</p>
+        <p>{{ imovel?.complemento  }}</p>
+       </div>
+      <div>
+        <p>Bairro:</p>
+        <p>{{ imovel?.bairro  }}</p>
+       </div>
+      <div>
+        <p>Localidade:</p>
+        <p>{{ imovel?.localidade  }}</p>
+       </div>
+      <div>
+        <p>UF:</p>
+        <p>{{ imovel?.uf  }}</p>
+       </div>
+    </div>
+    <h4>Cliente</h4>
+    <div class="col-12 content-data-imovel">
+      <div>
+        <p>Cliente:</p>
+        <p>{{ imovel?.cliente?.name  }}</p>
+       </div>
+      <div>
+        <p>E-mail:</p>
+        <p>{{ imovel?.cliente?.email  }}</p>
+      </div>
+      <div>
+        <p>CPF/CNPJ:</p>
+        <p>{{ imovel?.cliente?.cpfOuCnpj  }}</p>
+      </div>
+    </div>
+  </div>
+</div>
