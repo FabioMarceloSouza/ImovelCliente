@@ -20,16 +20,16 @@
     </div>
     <div class="mb-3 d-flex">
       <label style="margin-right: 20px;">
-        Cpf
+        CPF
         <input type="radio"  value="cpf"  (click)="handleChekedCpf()" [(ngModel)]="checked" [ngModelOptions]="{standalone: true}">
       </label>
       <label >
-        Cnpj
+        CNPJ
         <input type="radio"  value="cnpj"  (click)="handleChekedCnpj()" [(ngModel)]="checked" [ngModelOptions]="{standalone: true}">
       </label>
     </div>
     <div class="mb-3 " *ngIf="checked === 'cpf' ">
-      <label for="cpfOuCnpj"  class="form-label">Cpf</label>
+      <label for="cpfOuCnpj"  class="form-label">CPF</label>
       <input type="text"  class="form-control" id="cpfOuCnpj"   [mask]="'000.000.000-00'" formControlName="cpfOuCnpj" placeholder="Digite seu CPF...">
       <div class="error" *ngIf="!validaCliente.cpfOuCnpj?.valid && formDir.submitted">
         <p *ngIf="validaCliente.cpfOuCnpj?.errors?.['required']">Campo cpf obrigatório!</p>
@@ -38,14 +38,14 @@
     </div>
     <div class="mb-3 " *ngIf="checked === 'cnpj' " >
 
-      <label for="cpfOuCnpj"  class="form-label">Cnpj</label>
+      <label for="cpfOuCnpj"  class="form-label">CNPJ</label>
       <input type="text"  class="form-control" id="cpfOuCnpj"   [mask]="'00.000.000/0000-00'" formControlName="cpfOuCnpj" placeholder="Digite seu CNPJ...">
       <div class="error" *ngIf="!validaCliente.cpfOuCnpj?.valid && formDir.submitted">
         <p *ngIf="validaCliente.cpfOuCnpj?.errors?.['required']">Campo cnpj obrigatório!</p>
         <p *ngIf="validaCliente.cpfOuCnpj?.errors?.['cnpjInvalido']">Campo cnpj invalido!</p>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-dark">Submit</button>
   </form>
 </div>
 

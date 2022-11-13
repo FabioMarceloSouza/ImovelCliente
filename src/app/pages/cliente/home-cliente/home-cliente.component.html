@@ -48,4 +48,15 @@
         </div>
       </div>
   </div>
+
+  <div class="modal-delete bg-dark" *ngIf="modal == true">
+    <p>Não é possivel excluir um cliente que tenha um imovel vinculado a ele! </p>
+
+    <div class="row">
+      <div class="col-12 d-flex justify-content-between">
+          <button class="btn btn-light" (click)="fecharModal()">Fechar</button>
+      </div>
+    </div>
+</div>
+
 </div>
