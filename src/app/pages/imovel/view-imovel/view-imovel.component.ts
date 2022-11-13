@@ -13,6 +13,8 @@ export class ViewImovelComponent implements OnInit {
     abrir: false,
     imovelId: 0
   };
+
+  textoSearch: string = "";
   constructor(private imovelService: ImovelService) { }
 
   ngOnInit(): void {
@@ -67,6 +69,35 @@ export class ViewImovelComponent implements OnInit {
 
       }
     });
+  }
+
+
+  procurarImoveis(){
+    if(this.textoSearch === "") {
+      this.imovelService.getImoveis().subscribe({
+        next: (response) => {
+          let imovels = response.map( (x: any)=> {
+            if(x.tipoImovel === 1){
+              x.tipoImovel = "Venda"
+            }
+            if(x.tipoImovel === 2){
+              x.tipoImovel = "Aluguel"
+            }
+
+            return x;
+          });
+
+          response.imovels = imovels;
+
+          this.imovels = response;
+        }
+      });
+    }
+     let list =  this.imovels.filter( e =>
+      e.tipoImovel.toString().toLowerCase().trim().includes(this.textoSearch.toLowerCase().trim()) ||
+      e.cliente.name.toLowerCase().trim().includes(this.textoSearch.toLowerCase().trim())
+      );
+     this.imovels = list;
   }
 
 }

@@ -2,10 +2,14 @@
   font-size: 0.7em;
   font-weight: bold;
   width: 100px;
-
+  margin-left: 0px !important;
   &:hover {
     opacity: 0.9;
   }
+}
+
+.div-criar-cliente-imoveis {
+  padding-left: 0px;
 }
 
 .icon-home-cliente {
@@ -35,4 +39,19 @@
   &:hover {
     opacity: 0.9;
   }
+}
+
+.field-search-input {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  border: 1px solid #212529;
+  border-radius: 5px;
+  padding: 5px;
+}
+.field-search-input input {
+  outline: none;
+  border: none;
+  width: 100%;
+
 }

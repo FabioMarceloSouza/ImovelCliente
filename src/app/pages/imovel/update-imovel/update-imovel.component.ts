@@ -59,7 +59,7 @@ export class UpdateImovelComponent implements OnInit {
       return;
     }
 
-    this.imovelService.createImovel(this.formImovel.value).subscribe({
+    this.imovelService.updateImovel(this.formImovel.value).subscribe({
       next: (response) => {
          this.router.navigate(['/view-imovel']);
       }
