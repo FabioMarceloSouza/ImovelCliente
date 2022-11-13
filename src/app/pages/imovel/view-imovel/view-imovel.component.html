@@ -32,7 +32,7 @@
           <td>{{ item.valorImovel |currency: 'BRL'}}</td>
           <td>{{ item.dataPublicao}}</td>
           <td>{{ item.descricao}}</td>
-          <td><a class="btn btn-light btn-imoveis" [routerLink]="['/imovel-details', item.id]">Detalhes</a></td>
+          <td><a class="btn btn-light btn-imoveis" [routerLink]="['/details-imovel', item.id]">Detalhes</a></td>
           <td><i class="fa-solid fa-trash icon-home-cliente" (click)="handleDelete(item.id)"></i> | <a [routerLink]="['/update-imovel', item.id]"><i class="fa-solid fa-pen-to-square icon-home-cliente"></i></a></td>
         </tr>
 

@@ -18,6 +18,8 @@ import { ImoveisClienteComponent } from './pages/cliente/imoveis-cliente/imoveis
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { CreateImovelClienteComponent } from './pages/cliente/create-imovel-cliente/create-imovel-cliente.component';
 import { UpdateImovelClienteComponent } from './pages/cliente/update-imovel-cliente/update-imovel-cliente.component';
+import { DetailsImovelComponent } from './pages/imovel/details-imovel/details-imovel.component';
+import { DetailsImovelClienteComponent } from './pages/cliente/details-imovel-cliente/details-imovel-cliente.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { UpdateImovelClienteComponent } from './pages/cliente/update-imovel-clie
     ImoveisClienteComponent,
     CreateImovelClienteComponent,
     UpdateImovelClienteComponent,
+    DetailsImovelComponent,
+    DetailsImovelClienteComponent,
   ],
   imports: [
     BrowserModule,
