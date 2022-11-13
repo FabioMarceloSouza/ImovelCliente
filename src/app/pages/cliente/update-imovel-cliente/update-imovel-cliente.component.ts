@@ -37,7 +37,7 @@ export class UpdateImovelClienteComponent implements OnInit {
     this.activeRouter.params.subscribe( e => {
       this.imovelService.getImovel(e['id']).subscribe({
         next: (response) => {
-          this.imovel = response;
+        this.imovel = response;
         console.log(response)
         this.formImovel.get('valorImovel')?.setValue(response.valorImovel);
         this.formImovel.get('tipoImovel')?.setValue(response.tipoImovel);
@@ -61,9 +61,9 @@ export class UpdateImovelClienteComponent implements OnInit {
       return;
     }
 
-    this.imovelService.createImovel(this.formImovel.value).subscribe({
+    this.imovelService.updateImovel(this.formImovel.value).subscribe({
       next: (response) => {
-         this.router.navigate(['/view-imovel']);
+         this.router.navigate(['/imovies-cliente', this.imovel.cliente.id]);
       }
     });
   }

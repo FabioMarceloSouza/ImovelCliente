@@ -5,6 +5,7 @@ import { CreateImovelClienteComponent } from './pages/cliente/create-imovel-clie
 import { HomeClienteComponent } from './pages/cliente/home-cliente/home-cliente.component';
 import { ImoveisClienteComponent } from './pages/cliente/imoveis-cliente/imoveis-cliente.component';
 import { UpdateClienteComponent } from './pages/cliente/update-cliente/update-cliente.component';
+import { UpdateImovelClienteComponent } from './pages/cliente/update-imovel-cliente/update-imovel-cliente.component';
 import { CreateImovelComponent } from './pages/imovel/create-imovel/create-imovel.component';
 import { UpdateImovelComponent } from './pages/imovel/update-imovel/update-imovel.component';
 import { ViewImovelComponent } from './pages/imovel/view-imovel/view-imovel.component';
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: "update-cliente/:id", component: UpdateClienteComponent },
   { path: "imovies-cliente/:id", component: ImoveisClienteComponent },
   { path: "create-imovel-cliente/:id", component: CreateImovelClienteComponent },
-  { path: "update-imovel-cliente/:id", component: CreateImovelClienteComponent },
+  { path: "update-imovel-cliente/:id", component: UpdateImovelClienteComponent },
   { path: "view-imovel", component: ViewImovelComponent },
   { path: "create-imovel", component: CreateImovelComponent },
   { path: "update-imovel/:id", component: UpdateImovelComponent },

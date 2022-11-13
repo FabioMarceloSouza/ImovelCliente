@@ -2,7 +2,7 @@ import { Cliente } from "./cliente.model"
 
 export interface Imovels {
   id: number,
-  tipoImovel: number,
+  tipoImovel: number | string,
   valorImovel: number,
   dataPublicao: Date,
   descricao: string,
