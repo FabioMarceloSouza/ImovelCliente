@@ -13,6 +13,8 @@ export class HomeClienteComponent implements OnInit {
     abrir: false,
     clienteId: 0
   };
+
+  modal: boolean = false;
   search: string = "";
   constructor(private clienteService: ClienteService) { }
 
@@ -27,8 +29,14 @@ export class HomeClienteComponent implements OnInit {
   }
 
   public handleDelete(id: number) {
-    this.modelDelete.abrir = true;
-    this.modelDelete.clienteId = id;
+     let cliente  = this.clientes.filter( e => e.id === id);
+     if(cliente[0].imovels.length > 0){
+      this.modal =  true;
+     }else {
+      this.modelDelete.abrir = true;
+      this.modelDelete.clienteId = id;
+     }
+
   }
 
   public naoDeletar(){
@@ -42,6 +50,10 @@ export class HomeClienteComponent implements OnInit {
         this.clientes = response.filter(p => p.active === true);
       }
     });
+  }
+
+  public fecharModal(){
+    this.modal = false;
   }
 
   public handleSearchInput(){
